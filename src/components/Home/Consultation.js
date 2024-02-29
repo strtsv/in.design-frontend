@@ -4,6 +4,25 @@ import $ from "jquery";
 import i from "../../assets/images/resources/img5.jpg";
 
 class Consultation extends React.Component {
+  componentDidMount() {
+    $(".lnk-default")
+      .on("mouseenter", function(e) {
+        var parentOffset = $(this).offset(),
+          relX = e.pageX - parentOffset.left,
+          relY = e.pageY - parentOffset.top;
+        $(this)
+          .find("span")
+          .css({ top: relY, left: relX });
+      })
+      .on("mouseout", function(e) {
+        var parentOffset = $(this).offset(),
+          relX = e.pageX - parentOffset.left,
+          relY = e.pageY - parentOffset.top;
+        $(this)
+          .find("span")
+          .css({ top: relY, left: relX });
+      });
+  } 
   render() {
     return (
       <section className="consultation-sec">
