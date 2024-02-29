@@ -14,6 +14,14 @@ class Header extends React.Component {
         $(this).toggleClass("active");
         $(".responsive-mobile-menu").toggleClass("active");
       });
+      $(".search-btn").on("click", function() {
+        $(".header-search").addClass("active");
+        return false;
+      });
+      $(".search-close-btn").on("click", function() {
+        $(".header-search").removeClass("active");
+      });
+    });
     $(window).on("scroll", function() {
       if ($(this).scrollTop() > 1) {
         $("header").addClass("sticky animated slideInDown");
