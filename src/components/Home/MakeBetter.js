@@ -8,8 +8,25 @@ import i3 from "../../assets/images/resources/banner1.jpg";
 import i4 from "../../assets/images/resources/banner2.jpg";
 import i5 from "../../assets/images/resources/banner3.jpg";
 
+function initSlider(selector, options) {
+  if ($.fn.slick) {
+    $(selector).slick(options);
+    console.log("catched")
+  } else {
+    setTimeout(function() {
+      initSlider(selector, options);
+    }, 500);
+  }
+}
+
 class MakeBetter extends React.Component {
   componentDidMount() {
+    initSlider(".banner-slider", {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: false,
+      arrows: true,
+    });
     $(".lnk-default")
       .on("mouseenter", function(e) {
         var parentOffset = $(this).offset(),
