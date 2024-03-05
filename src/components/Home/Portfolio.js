@@ -26,6 +26,14 @@ class Portfolio extends React.Component {
           return false;
         }
       );
+      $("html, .menu-btn.active").on("click", function() {
+        $(".responsive-mobile-menu").removeClass("active");
+        $(".menu-btn").removeClass("active");
+      });
+
+      $(".menu-btn, .responsive-mobile-menu").on("click", function(e) {
+        e.stopPropagation();
+      });
     });
   }
   render() {
